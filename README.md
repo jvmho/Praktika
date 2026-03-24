@@ -4,10 +4,9 @@
 
 Наша доска в Figma - https://www.figma.com/design/0ms2BOrFCr5Uki9CmlvOjv/Praktika--23.03---06.04-?node-id=0-1&t=ZEQQ3cPL9ulKiGC9-1
 
-Краткий гайд по пользованию git - https://git-scm.com/cheat-sheet - список команд, которые вам понадобяться при работе с репозиторием.
+Краткий гайд по пользованию git - https://git-scm.com/cheat-sheet 
 
 Соглашение о коммитах - https://www.conventionalcommits.org/ru/v1.0.0/ 
-
 
 ## Правила ведения репозитория
 
