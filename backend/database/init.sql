@@ -122,7 +122,7 @@ CREATE TABLE CartItem (
 );
 
 -- Заказы
-CREATE TABLE "Order" (
+CREATE TABLE Order (
     orderID      SERIAL PRIMARY KEY,
     userID       INT REFERENCES "User"(userID),
     discount     INT CHECK (discount >= 0 AND discount <= 100),
