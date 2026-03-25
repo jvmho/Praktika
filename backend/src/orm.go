@@ -23,7 +23,7 @@ type User struct {
 	UserId   int
 	Login    string
     Password string
-	RoleID   int
+	RoleID   *int `pg:"rel:has-one""`
 	Name     string	
 }
 
@@ -33,7 +33,7 @@ func (u User) String() string {
 
 type UserDiscount struct {
 	DiscountID int
-	UserId     int
+	UserId     *int `pg:"rel:has-one"`
 	Percent    int
 	ValidFrom  string
 	ValidTo    string
@@ -57,7 +57,7 @@ func (m Manufacturer) String() string {
 type DrugType struct {
 	TypeId   int
 	Name     string
-	ParentId int
+	ParentId *int `pg:"rel:has-one"`
 }
 
 func (dt DrugType) String() string {
@@ -70,9 +70,9 @@ type Drug struct {
 	Category       string
 	Description    string
 	INN            string
-	TypeID         int
+	TypeID         *int `pg:"rel:has-one"`
 	Dose           string
-	ManufacturerID int 
+	ManufacturerID *int `pg:"rel:has-one"` 
 	Barcode        int
 }
 
@@ -92,7 +92,7 @@ func (s.Supplier) String() string {
 
 type Supply struct {
 	SupplyID   int
-	SupplierID int
+	SupplierID *int `pg:"rel:has-one"`
 	SupplyDate string
 	Status     string
 }
@@ -103,8 +103,8 @@ func (s.Supply) String() string {
 
 type Batch struct {
 	BatchID     int
-	DrugID      int 
-	SupplyID    int 
+	DrugID      *int `pg:"rel:has-one"` 
+	SupplyID    *int `pg:"rel:has-one"` 
 	Number      string
 	ShelfLife   string
 	ArrivalDate string
@@ -127,8 +127,8 @@ func (w.Warehouse) String() string {
 
 type Stock struct {
 	StockID     int
-	WarehouseID int
-	BatchID     int
+	WarehouseID *int `pg:"rel:has-one"`
+	BatchID     *int `pg:"rel:has-one"`
 	Amount      int
 }
 
@@ -138,7 +138,7 @@ func (s.Stock) String() string {
 
 type Cart struct {
 	CartID    int
-	UserID    int
+	UserID    *int `pg:"rel:has-one"`
 	CreatedAt string
 	UpdatedAt string
 	Status    string
@@ -150,8 +150,8 @@ func (c.Cart) String() string {
 
 type CartItem struct {
 	CartItemID int
-	CartID     int
-	DrugID     int
+	CartID     *int `pg:"rel:has-one"`
+	DrugID     *int `pg:"rel:has-one"`
 	Quantity   int
 }
 
@@ -161,7 +161,7 @@ func (ci.CartItem) String() string {
 
 type Order struct {
 	OrderID      int
-	UserID       int
+	UserID       *int `pg:"rel:has-one"`
 	Discount     int
 	CreatedAt    string
 	TotalAmount  int
@@ -175,9 +175,9 @@ func (o.Order) String() string {
 
 type OrderItem struct {
 	OrderItemID int
-	OrderID     int 
-	BatchID     int
-	Quantity    int 
+	OrderID     *int `pg:"rel:has-one"` 
+	BatchID     *int `pg:"rel:has-one"`
+ 	Quantity    int 
 	Price       int
 }
 
@@ -187,8 +187,8 @@ func (oi.OrderItem) String() string {
 
 type Reservation struct {
 	ReservationID int
-	BatchID       int
-	OrderID       int
+	BatchID       *int `pg:"rel:has-one"`
+	OrderID       *int `pg:"rel:has-one"`
 	Quantity      int
 	ExpiresAt     string
 }
