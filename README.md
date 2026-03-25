@@ -4,6 +4,8 @@
 
 Наша доска в Figma - https://www.figma.com/design/0ms2BOrFCr5Uki9CmlvOjv/Praktika--23.03---06.04-?node-id=0-1&t=ZEQQ3cPL9ulKiGC9-1
 
+Наша ER-диаграмма в Miro - https://miro.com/welcomeonboard/Yk9EN1Q3czQ5d2pxYzg3VVlKRUpDTllGNkNIcnNsMEE2SWkxR0RuT2V1YmcxaUlQbmg3ZmZpcmtsbWsvRmZzQ3RlNTA1V2ZsMlZQYmdWSlRKakhtUHVvLzJkcy82M3FtWEcyN1lLdU5Fa0dlZlZuR01ybWN4RFZmRzZLcjUyanN0R2lncW1vRmFBVnlLcVJzTmdFdlNRPT0hdjE=?share_link_id=848697640126
+
 Краткий гайд по пользованию git - https://git-scm.com/cheat-sheet 
 
 Соглашение о коммитах - https://www.conventionalcommits.org/ru/v1.0.0/ 
