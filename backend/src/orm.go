@@ -1,198 +1,354 @@
-package pg_orm
+package main
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/go-pg/pg/v10"
-    "github.com/go-pg/pg/v10/orm"
+	"github.com/go-pg/pg/v10/orm"
 )
 
 /*
-   --=== Structures ===--
-                          */
-                          
+   --=== MODELS ===--
+*/
+
 type Role struct {
-	RoleID     int
+	tableName struct{} `pg:"roles"`
+	Id         int
 	UserStatus string
 }
 
-func (r Role) String() string {
-	return fmt.Sprintf("Role<%d %s>", r.RoleID, r.UserStatus)
-}
-
 type User struct {
-	UserId   int
-	Login    string
-    Password string
-	RoleID   *int `pg:"rel:has-one""`
-	Name     string	
-}
+	tableName struct{} `pg:"users"`
 
-func (u User) String() string {
-	return fmt.Sprintf("User<%d %s %s $d %s>", u.UserID, u.Login, u.Password, u.RoleID, u.Name)
+	Id       int
+	Login    string
+	Password string
+	Name     string
+
+	RoleId int
+	Role   *Role `pg:"rel:has-one"`
 }
 
 type UserDiscount struct {
-	DiscountID int
-	UserId     *int `pg:"rel:has-one"`
-	Percent    int
-	ValidFrom  string
-	ValidTo    string
-}
+	tableName struct{} `pg:"user_discounts"`
 
-func (ud UserDiscount) String() string {
-	return fmt.Sprintf("UserDiscount<%d %d %d %s %s>", ud.DiscountID, us.UserID, ud.Percent, ud.ValidFrom, ud.ValidTo)
+	Id      int
+	UserId  int
+	User    *User `pg:"rel:has-one"`
+	Percent int
+
+	ValidFrom time.Time
+	ValidTo   time.Time
 }
 
 type Manufacturer struct {
-	ManufacturerId int
-	Name           string
-	Country        string
-	ContactNumber  int
-}
+	tableName struct{} `pg:"manufacturers"`
 
-func (m Manufacturer) String() string {
-	return fmt.Sprintf("Manufacturer<%d %s %s %d>", m.ManufacturerID, m.Name, m.Country, m.ContactNumber)
+	Id            int
+	Name          string
+	Country       string
+	ContactNumber string
 }
 
 type DrugType struct {
-	TypeId   int
-	Name     string
-	ParentId *int `pg:"rel:has-one"`
-}
+	tableName struct{} `pg:"drug_types"`
 
-func (dt DrugType) String() string {
-	return fmt.Sprintf("DrugType<%d %s %d>", dt.TypeID, dt.Name, dt.ParentID)
+	Id       int
+	Name     string
+	ParentId *int
+	Parent   *DrugType `pg:"rel:has-one"`
 }
 
 type Drug struct {
-	DrugId         int
-	Name           string
-	Category       string
-	Description    string
-	INN            string
-	TypeID         *int `pg:"rel:has-one"`
-	Dose           string
-	ManufacturerID *int `pg:"rel:has-one"` 
-	Barcode        int
-}
+	tableName struct{} `pg:"drugs"`
 
-func (d.Drug) String() string {
-	return fmt.Sprintf("Drug<%d %s %s %s %s %d %s %d %d>", d.DrugID, d.Name, d.Category, d.Description, d.INN, d.TypeID, d.Dose, d.ManufacturerID, d.Barcode)
+	Id          int
+	Name        string
+	Category    string
+	Description string
+	INN         string
+	Dose        string
+	Barcode     int
+
+	TypeId int
+	Type   *DrugType `pg:"rel:has-one"`
+
+	ManufacturerId int
+	Manufacturer   *Manufacturer `pg:"rel:has-one"`
 }
 
 type Supplier struct {
-	SupplierID int
-	Name       string
-	Number     string
-}
+	tableName struct{} `pg:"suppliers"`
 
-func (s.Supplier) String() string {
-	return fmt.Sprintf("Supplier<%d %s %s>", s.SupplierID, s.Name, s.Number)
+	Id     int
+	Name   string
+	Number string
 }
 
 type Supply struct {
-	SupplyID   int
-	SupplierID *int `pg:"rel:has-one"`
-	SupplyDate string
+	tableName struct{} `pg:"supplies"`
+
+	Id int
+
+	SupplierId int
+	Supplier   *Supplier `pg:"rel:has-one"`
+
+	SupplyDate time.Time
 	Status     string
 }
 
-func (s.Supply) String() string {
-	return fmt.Sprintf("Supply<%d %d %s %s>", s.SupplyID, s.SupplierID, s.SupplyDate, s.Status)
-}
-
 type Batch struct {
-	BatchID     int
-	DrugID      *int `pg:"rel:has-one"` 
-	SupplyID    *int `pg:"rel:has-one"` 
+	tableName struct{} `pg:"batches"`
+
+	Id int
+
+	DrugId int
+	Drug   *Drug `pg:"rel:has-one"`
+
+	SupplyId int
+	Supply   *Supply `pg:"rel:has-one"`
+
 	Number      string
-	ShelfLife   string
-	ArrivalDate string
+	ShelfLife   time.Time
+	ArrivalDate time.Time
 	Price       int
 }
 
-func (b.Batch) String() string {
-	return fmt.Sprintf("Batch<%d %d %d %s %s %s %d>", b.BatchID, b.DrugID, b.SupplyID, b.Number, b.ShelfLife, b.ArrivalDate, b.Price)
-}
-
 type Warehouse struct {
-	WarehouseID int
-	Name        string
-	Address     string
-}
+	tableName struct{} `pg:"warehouses"`
 
-func (w.Warehouse) String() string {
-	return fmt.Sprintf("Warehouse<%d %s %s>", w.WarehouseID, w.Name, w.Address)
+	Id      int
+	Name    string
+	Address string
 }
 
 type Stock struct {
-	StockID     int
-	WarehouseID *int `pg:"rel:has-one"`
-	BatchID     *int `pg:"rel:has-one"`
-	Amount      int
-}
+	tableName struct{} `pg:"stocks"`
 
-func (s.Stock) String() string {
-	return fmt.Sprintf("Stock<%d %d %d %d>", s.StockID, s.WarehouseID, s.BatchID, s.Amount)
+	Id int
+
+	WarehouseId int
+	Warehouse   *Warehouse `pg:"rel:has-one"`
+
+	BatchId int
+	Batch   *Batch `pg:"rel:has-one"`
+
+	Amount int
 }
 
 type Cart struct {
-	CartID    int
-	UserID    *int `pg:"rel:has-one"`
-	CreatedAt string
-	UpdatedAt string
+	tableName struct{} `pg:"carts"`
+
+	Id int
+
+	UserId int
+	User   *User `pg:"rel:has-one"`
+
+	CreatedAt time.Time
+	UpdatedAt time.Time
 	Status    string
 }
 
-func (c.Cart) String() string {
-	return fmt.Sprintf("Cart<%d %d %s %s %s>", c.CartID, c.UserID, c.CreatedAt, c.UpdatedAt, c.Status)
-}
-
 type CartItem struct {
-	CartItemID int
-	CartID     *int `pg:"rel:has-one"`
-	DrugID     *int `pg:"rel:has-one"`
-	Quantity   int
-}
+	tableName struct{} `pg:"cart_items"`
 
-func (ci.CartItem) String() string {
-	return fmt.Sprintf("CartItem<%d %d %d %d>", ci.CartItemID, ci.CartID, ci.DrugID, ci.Quantity)
+	Id int
+
+	CartId int
+	Cart   *Cart `pg:"rel:has-one"`
+
+	DrugId int
+	Drug   *Drug `pg:"rel:has-one"`
+
+	Quantity int
 }
 
 type Order struct {
-	OrderID      int
-	UserID       *int `pg:"rel:has-one"`
+	tableName struct{} `pg:"orders"`
+
+	Id int
+
+	UserId int
+	User   *User `pg:"rel:has-one"`
+
 	Discount     int
-	CreatedAt    string
+	CreatedAt    time.Time
 	TotalAmount  int
 	Status       string
 	DeliveryType string
 }
 
-func (o.Order) String() string {
-	return fmt.Sprintf("Order<%d %d %d %s %d %s %s>", o.OrderID, o.UserID, o.Discount, o.CreatedAt, o.TotalAmount, o.Status, o.DeliveryType)
-}
-
 type OrderItem struct {
-	OrderItemID int
-	OrderID     *int `pg:"rel:has-one"` 
-	BatchID     *int `pg:"rel:has-one"`
- 	Quantity    int 
-	Price       int
-}
+	tableName struct{} `pg:"order_items"`
 
-func (oi.OrderItem) String() string {
-	return fmt.Sprintf("OrderItem<%d %d %d %d %d>",oi.OrderItemID, oi.OrderID, oi.BatchID, oi.Quantity, oi.Price )
+	Id int
+
+	OrderId int
+	Order   *Order `pg:"rel:has-one"`
+
+	BatchId int
+	Batch   *Batch `pg:"rel:has-one"`
+
+	Quantity int
+	Price    int
 }
 
 type Reservation struct {
-	ReservationID int
-	BatchID       *int `pg:"rel:has-one"`
-	OrderID       *int `pg:"rel:has-one"`
-	Quantity      int
-	ExpiresAt     string
+	tableName struct{} `pg:"reservations"`
+
+	Id int
+
+	BatchId int
+	Batch   *Batch `pg:"rel:has-one"`
+
+	OrderId int
+	Order   *Order `pg:"rel:has-one"`
+
+	Quantity  int
+	ExpiresAt time.Time
 }
 
-func (r.Reservation) String() string {
-	return fmt.Sprintf("Reservation<%d %d %d %d %s>", r.ReservationID, r.BatchID, r.OrderID, r.Quantity, r.ExpiresAt)
+/*
+   --=== MAIN ===--
+*/
+
+func main() {
+	db := pg.Connect(&pg.Options{
+		User: "postgres",
+	})
+	defer db.Close()
+
+	err := createSchema(db)
+	if err != nil {
+		panic(err)
+	}
+
+	err = seed(db)
+	if err != nil {
+		panic(err)
+	}
+
+	err = testQuery(db)
+	if err != nil {
+		panic(err)
+	}
+}
+
+/*
+   --=== SCHEMA ===--
+*/
+
+func createSchema(db *pg.DB) error {
+	models := []interface{}{
+		(*Role)(nil),
+		(*User)(nil),
+		(*UserDiscount)(nil),
+		(*Manufacturer)(nil),
+		(*DrugType)(nil),
+		(*Drug)(nil),
+		(*Supplier)(nil),
+		(*Supply)(nil),
+		(*Batch)(nil),
+		(*Warehouse)(nil),
+		(*Stock)(nil),
+		(*Cart)(nil),
+		(*CartItem)(nil),
+		(*Order)(nil),
+		(*OrderItem)(nil),
+		(*Reservation)(nil),
+	}
+
+	for _, model := range models {
+		err := db.Model(model).CreateTable(&orm.CreateTableOptions{
+			Temp: true,
+		})
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+/*
+   --=== DATA ===--
+*/
+
+func seed(db *pg.DB) error {
+	role := &Role{UserStatus: "admin"}
+	_, _ = db.Model(role).Insert()
+
+	user := &User{
+		Login:  "john",
+		Name:   "John Doe",
+		RoleId: role.Id,
+	}
+	_, _ = db.Model(user).Insert()
+
+	manufacturer := &Manufacturer{Name: "Bayer", Country: "Germany"}
+	_, _ = db.Model(manufacturer).Insert()
+
+	dt := &DrugType{Name: "Antibiotic"}
+	_, _ = db.Model(dt).Insert()
+
+	drug := &Drug{
+		Name:           "Amoxicillin",
+		TypeId:         dt.Id,
+		ManufacturerId: manufacturer.Id,
+	}
+	_, _ = db.Model(drug).Insert()
+
+	order := &Order{
+		UserId:    user.Id,
+		CreatedAt: time.Now(),
+	}
+	_, _ = db.Model(order).Insert()
+
+	batch := &Batch{
+		DrugId:      drug.Id,
+		SupplyId:    0,
+		Number:      "B001",
+		ArrivalDate: time.Now(),
+		Price:       100,
+	}
+	_, _ = db.Model(batch).Insert()
+
+	item := &OrderItem{
+		OrderId:  order.Id,
+		BatchId:  batch.Id,
+		Quantity: 2,
+		Price:    100,
+	}
+	_, _ = db.Model(item).Insert()
+
+	return nil
+}
+
+/*
+   --=== QUERY ===--
+*/
+
+func testQuery(db *pg.DB) error {
+	var items []OrderItem
+
+	err := db.Model(&items).
+		Relation("Order.User.Role").
+		Relation("Batch.Drug.Type").
+		Relation("Batch.Drug.Manufacturer").
+		Select()
+
+	if err != nil {
+		return err
+	}
+
+	for _, i := range items {
+		fmt.Println(
+			i.Order.User.Login,
+			i.Order.User.Role.UserStatus,
+			i.Batch.Drug.Name,
+			i.Batch.Drug.Type.Name,
+		)
+	}
+
+	return nil
 }
