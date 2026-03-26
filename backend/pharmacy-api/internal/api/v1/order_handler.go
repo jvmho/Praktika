@@ -9,26 +9,21 @@ import (
 )
 
 type OrderHandler struct {
-	db *pg.DB
+	BaseHandler
 }
 
 func NewOrderHandler(db *pg.DB) *OrderHandler {
-	return &OrderHandler{db}
+	return &OrderHandler{BaseHandler{db}}
 }
 
-func (h *OrderHandler) List(w http.ResponseWriter, r *http.Request) {
-	var items []models.OrderItem
+func (h *OrderHandler) Create(w http.ResponseWriter, r *http.Request) {
+	order := new(models.Order)
+	json.NewDecoder(r.Body).Decode(order)
+	h.DB.Model(order).Insert()
+	json.NewEncoder(w).Encode(order)
+}
 
-	err := h.db.Model(&items).
-		Relation("Order.User.Role").
-		Relation("Batch.Drug.Type").
-		Relation("Batch.Drug.Manufacturer").
-		Select()
-
-	if err != nil {
-		http.Error(w, "error", 500)
-		return
-	}
-
-	json.NewEncoder(w).Encode(items)
+func (h *OrderHandler) Get(w http.ResponseWriter, r *http.Request) {
+	order := new(models.Order)
+	h.BaseHandler.GetByID(w, r, order, "/api/v1/orders/")
 }
