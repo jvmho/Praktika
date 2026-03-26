@@ -12,23 +12,30 @@ var secret = []byte("secret-key")
 func Auth(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		header := r.Header.Get("Authorization")
-
 		if header == "" {
-			http.Error(w, "unauthorized", 401)
+			http.Error(w, "unauthorized", http.StatusUnauthorized)
 			return
 		}
 
-		tokenStr := strings.TrimPrefix(header, "Bearer ")
+		// Проверка формата Bearer
+		parts := strings.SplitN(header, " ", 2)
+		if len(parts) != 2 || strings.ToLower(parts[0]) != "bearer" {
+			http.Error(w, "invalid token - invalid input", http.StatusUnauthorized)
+			return
+		}
 
-		_, err := jwt.Parse(tokenStr, func(t *jwt.Token) (interface{}, error) {
+		tokenStr := parts[1]
+
+		// Парсинг и проверка токена
+		token, err := jwt.Parse(tokenStr, func(t *jwt.Token) (interface{}, error) {
 			return secret, nil
 		})
-
-		if err != nil {
-			http.Error(w, "invalid token", 401)
+		if err != nil || !token.Valid {
+			http.Error(w, "invalid token - invalid signature", http.StatusUnauthorized)
 			return
 		}
 
+		// Всё ок — вызываем следующий хендлер
 		next(w, r)
 	}
 }

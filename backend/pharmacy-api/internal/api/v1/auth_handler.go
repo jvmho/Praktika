@@ -9,7 +9,7 @@ import (
 	"pharmacy-api/internal/models"
 )
 
-var secret = []byte("secret")
+var secret = []byte("secret-key")
 
 type AuthHandler struct {
 	db *pg.DB

@@ -35,5 +35,25 @@ func CreateSchema(db *pg.DB) error {
 			return err
 		}
 	}
+
+	// ===== Seed data =====
+
+	adminRole := &models.Role{Id: 1, UserStatus: "admin"}
+	_, err := db.Model(adminRole).OnConflict("DO NOTHING").Insert()
+	if err != nil {
+		return err
+	}
+
+	user := &models.User {
+		Login: "admin",
+		Password: "admin",
+		Name: "Administrator",
+		RoleId: adminRole.Id,
+	}
+	_, err = db.Model(user).OnConflict("DO NOTHING").Insert()
+	if err != nil {
+		return err
+	}
+	
 	return nil
 }
