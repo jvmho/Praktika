@@ -124,7 +124,7 @@ func seedRoles(db *pg.DB) error {
 
 func seedUsers(db *pg.DB) error {
 	users := []models.User{
-		{Id: 1, Login: "admin@pharmacy.ru", Password: "hashed_admin_pass_123", RoleId: 1, Name: "Администратор Системы"},
+		{Id: 1, Login: "admin", Password: "admin", RoleId: 1, Name: "Администратор Системы"},
 		{Id: 2, Login: "ivanov@mail.ru", Password: "hashed_pass_456", RoleId: 2, Name: "Иванов Иван Иванович"},
 		{Id: 3, Login: "petrova@gmail.com", Password: "hashed_pass_789", RoleId: 2, Name: "Петрова Мария Сергеевна"},
 		{Id: 4, Login: "sidorov@yandex.ru", Password: "hashed_pass_012", RoleId: 2, Name: "Сидоров Алексей Петрович"},

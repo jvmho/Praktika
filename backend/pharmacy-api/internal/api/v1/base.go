@@ -82,3 +82,5 @@ func (h *BaseHandler) Patch(w http.ResponseWriter, r *http.Request, model interf
 
 	json.NewEncoder(w).Encode(model)
 }
+
+//func (h *BaseHandler) Delete() {}
