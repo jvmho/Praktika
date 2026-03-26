@@ -32,8 +32,13 @@ func (h *AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 		Where("login = ?", req.Login).
 		Select()
 
-	if err != nil || user.Password != req.Password {
-		http.Error(w, "invalid credentials", 401)
+	if err != nil {
+		http.Error(w, "invalid login", 401)
+		return
+	}
+	
+	if user.Password != req.Password {
+		http.Error(w, "invalid password", 401)
 		return
 	}
 
