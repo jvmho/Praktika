@@ -29,3 +29,8 @@ func (h *UserHandler) Create(w http.ResponseWriter, r *http.Request) {
 	user := new(models.User)
 	h.BaseHandler.Create(w, r, user)
 }
+
+func (h *UserHandler) Delete(w http.ResponseWriter, r *http.Request) {
+	user := new(models.User)
+	h.BaseHandler.Delete(w, r, user, "api/v1/users/")
+}

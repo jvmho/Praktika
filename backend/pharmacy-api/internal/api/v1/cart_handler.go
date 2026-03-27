@@ -27,3 +27,8 @@ func (h *CartHandler) AddItem(w http.ResponseWriter, r *http.Request) {
 	h.DB.Model(item).Insert()
 	json.NewEncoder(w).Encode(item)
 }
+
+func (h *CartHandler) DeleteItem(w http.ResponseWriter, r *http.Request) {
+	item := new(models.CartItem)
+	h.BaseHandler.Delete(w, r, item, "api/v1/cart/items/")
+}

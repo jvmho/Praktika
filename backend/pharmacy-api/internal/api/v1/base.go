@@ -103,7 +103,7 @@ func (h *BaseHandler) Delete(w http.ResponseWriter, r *http.Request, model inter
     }
 
     // Выполняем удаление
-    result, err := h.DB.Model(model).Where("id = ?", id).Delete()
+    _, err = h.DB.Model(model).Where("id = ?", id).Delete()
     if err != nil {
         // Обработка конфликта внешних ключей
         if strings.Contains(err.Error(), "foreign key constraint") {
