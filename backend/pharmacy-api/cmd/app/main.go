@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	"pharmacy-api/internal/api"
+	"pharmacy-api/internal/logger"
 	v1 "pharmacy-api/internal/api/v1"
 	"pharmacy-api/internal/db"
 )
@@ -41,11 +41,11 @@ func main() {
 	http.HandleFunc(base+"/orders/", api.Auth(orderHandler.Get))
 	http.HandleFunc(base+"/supplies", api.Auth(supplyHandler.List))
 	http.HandleFunc(base+"/reservations", api.Auth(reservationHandler.Create))
-
 	
-	fmt.Println("Server is running at http://localhost:8080")
+	logger.Info("Server running at http://localhost:8080")
+
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
-		panic(err)
+		logger.Error(err)
 	}
 }
