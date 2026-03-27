@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: pharmacy_user
       POSTGRES_PASSWORD: pharmacy_secret
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       # Только данные, без init.sql
       - pgdata:/var/lib/postgresql/data
@@ -19,19 +19,20 @@ services:
       retries: 5
 
   api:
-    build:
-      context: ./pharmacy-api
-      dockerfile: Dockerfile
-    container_name: pharmacy-api
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-    environment:
-      DATABASE_URL: "postgres://pharmacy_user:pharmacy_secret@db:5432/pharmacy?sslmode=disable"
-      SERVER_PORT: 8080
-    depends_on:
-      db:
-        condition: service_healthy
-
+      build:
+        context: ./pharmacy-api
+        dockerfile: Dockerfile
+      container_name: pharmacy-api
+      restart: unless-stopped
+      ports:
+        - "8080:8080"
+      environment:
+        DB_ADDR: db:5432
+        DB_USER: pharmacy_user
+        DB_PASSWORD: pharmacy_secret
+        DB_NAME: pharmacy
+      depends_on:
+        db:
+          condition: service_healthy
 volumes:
   pgdata:
