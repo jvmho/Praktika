@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.vitaminka.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_catalog"
+        android:name="com.example.vitaminka.ui.catalog.CatalogFragment"
+        tools:layout="@layout/fragment_catalog">
+        <action
+            android:id="@+id/action_catalog_to_orthopedic"
+            app:destination="@+id/navigation_catalog_orthopedic"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.vitaminka.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@+id/navigation_profile_login"/>
+        <action
+            android:id="@+id/action_profile_to_likes"
+            app:destination="@+id/navigation_profile_likes"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_catalog_orthopedic"
+        android:name="com.example.vitaminka.ui.catalog.OrthopedicFragment"
+        tools:layout="@layout/fragment_orthopedic">
+        <action
+            android:id="@+id/action_orthopedic_to_massagers"
+            app:destination="@+id/navigation_catalog_orthopedic_massagers"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_catalog_orthopedic_massagers"
+        android:name="com.example.vitaminka.ui.catalog.MassagersFragment"
+        tools:layout="@layout/fragment_massagers">
+        <action
+            android:id="@+id/action_massagers_to_filters"
+            app:destination="@id/navigation_catalog_orthopedic_massagers_filters"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_catalog_orthopedic_massagers_filters"
+        android:name="com.example.vitaminka.ui.catalog.FiltersFragment"
+        tools:layout="@layout/fragment_filters"/>
+
+    <fragment
+        android:id="@+id/navigation_profile_login"
+        android:name="com.example.vitaminka.ui.profile.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_registration"
+            app:destination="@id/navigation_profile_registration"/>
+        <action
+            android:id="@+id/action_login_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_registration"
+        android:name="com.example.vitaminka.ui.profile.RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registration_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_likes"
+        android:name="com.example.vitaminka.ui.profile.LikesFragment"
+        tools:layout="@layout/fragment_likes"/>
+
+</navigation>

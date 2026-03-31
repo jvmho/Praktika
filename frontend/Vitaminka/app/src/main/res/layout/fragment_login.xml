@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A000000"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вход или регистрация"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/bg"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Логин"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/et_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/bg"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Пароль"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/bg"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="Войти"
+        android:textColor="@color/ac2"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:textAllCaps="false"
+        android:background="@drawable/rounded_btn_light"
+        android:padding="8dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_watch_registration_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
+        android:text="Зарегистрироваться"
+        android:textColor="@color/ac2"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:clickable="true"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:text="Часто задаваемые вопросы"
+        android:textColor="@color/bg"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:drawableEnd="@drawable/arrow_right"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:clickable="true"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:text="Адреса аптек"
+        android:textColor="@color/bg"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:drawableEnd="@drawable/arrow_right"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:clickable="true"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:text="Служба поддержки"
+        android:textColor="@color/bg"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:drawableEnd="@drawable/arrow_right"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"/>
+
+</LinearLayout>
