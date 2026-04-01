@@ -83,7 +83,8 @@ CREATE TABLE Batch (
     number      INT,
     shelfLife   DATE,
     arrivalDate DATE,
-    price       INT
+    price       INT,
+    discount    INT CHECK (discount <= 100 AND discount >= 0)
 );
 
 -- Склады
