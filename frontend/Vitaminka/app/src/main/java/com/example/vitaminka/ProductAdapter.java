@@ -1,7 +1,6 @@
 package com.example.vitaminka;
 
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import java.util.List;
 
@@ -26,6 +24,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         void onFavoriteClick(Product product, int position);
         void onAddToCartClick(Product product, int position);
     }
+    public ProductAdapter(OnProductActionListener listener){
+        this.listener = listener;
+    };
 
     public ProductAdapter(List<Product> productList, OnProductActionListener listener) {
         this.productList = productList;
@@ -97,8 +98,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 btnFavorite.setImageResource(R.drawable.full_heart_icon);
             }
 
-            btnFavorite.setOnClickListener(v -> {
-                if (listener != null) listener.onFavoriteClick(product, position);
+            btnFavorite.setOnClickListener(v -> {if (listener != null) listener.onFavoriteClick(product, position);
                     if (product.isItLiked()){
                         btnFavorite.setImageResource(R.drawable.heart_icon);
                         product.setItLiked(!product.isItLiked());

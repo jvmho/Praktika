@@ -8,7 +8,7 @@
     android:padding="8dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_drug_types"
+        android:id="@+id/rv_drugs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

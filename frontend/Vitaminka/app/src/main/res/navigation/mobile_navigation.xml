@@ -78,6 +78,10 @@
     <fragment
         android:id="@+id/navigation_profile_likes"
         android:name="com.example.vitaminka.ui.profile.LikesFragment"
-        tools:layout="@layout/fragment_likes"/>
+        tools:layout="@layout/fragment_likes">
+        <action
+            android:id="@+id/action_likes_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
 
 </navigation>

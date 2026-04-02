@@ -25,10 +25,10 @@ public class LikesViewModel extends ViewModel {
 
     private void loadProducts() {
         List<Product> likesList = new ArrayList<>();
-        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, false, R.drawable.product1));
-        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, false, R.drawable.product1));
-        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, false, R.drawable.product1));
-        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, false, R.drawable.product1));
+        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, R.drawable.product1, true));
+        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, R.drawable.product1, true));
+        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, R.drawable.product1, true));
+        likesList.add(new Product("Тримедат таблетки 200мг №30 (Тримебутин)", 869.00, 966.00, true, R.drawable.product1, true));
         likesProductsLiveData.setValue(likesList);
     }
 }

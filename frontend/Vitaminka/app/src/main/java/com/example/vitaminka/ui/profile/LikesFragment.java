@@ -10,11 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vitaminka.Product;
 import com.example.vitaminka.ProductAdapter;
+import com.example.vitaminka.R;
 import com.example.vitaminka.databinding.FragmentLikesBinding;
 
 public class LikesFragment extends Fragment implements ProductAdapter.OnProductActionListener{
@@ -31,9 +33,9 @@ public class LikesFragment extends Fragment implements ProductAdapter.OnProductA
         rv_likes.setLayoutManager(new GridLayoutManager(getContext(), 2));
         productAdapter = new ProductAdapter(null, this);
         rv_likes.setAdapter(productAdapter);
-        ImageButton btn = binding.btnBack;
-        btn.setOnClickListener(v -> {
-            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+        ImageButton btn_back = binding.btnBack;
+        btn_back.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigate(R.id.action_likes_to_profile);
         });
 
 

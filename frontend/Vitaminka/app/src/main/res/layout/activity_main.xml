@@ -39,7 +39,7 @@
                     android:layout_height="48dp"
                     android:src="@drawable/logo_small"/>
 
-                <EditText
+                <TextView
                     android:id="@+id/search_input"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
@@ -52,6 +52,7 @@
                     android:inputType="textNoSuggestions"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/bg"
+                    android:clickable="true"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <ImageView

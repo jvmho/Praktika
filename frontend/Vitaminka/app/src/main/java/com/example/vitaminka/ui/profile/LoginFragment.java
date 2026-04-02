@@ -2,10 +2,7 @@ package com.example.vitaminka.ui.profile;
 
 import static com.example.vitaminka.MainActivity.PREFS_ISLOGGED;
 import static com.example.vitaminka.MainActivity.SP_EDITOR;
-import static com.example.vitaminka.MainActivity.SP_SETTINGS;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +33,6 @@ public class LoginFragment extends Fragment {
         EditText et_pass = view.findViewById(R.id.et_password);
         btn_login.setOnClickListener(v -> {
             if (et_login.getText().toString().equals("admin") && et_pass.getText().toString().equals("admin")) {  //TODO
-                //SP_SETTINGS = requireActivity().getPreferences(Context.MODE_PRIVATE);
                 SP_EDITOR.putBoolean(PREFS_ISLOGGED, true);
                 SP_EDITOR.apply();
                 NavHostFragment.findNavController(this).navigate(R.id.action_login_to_profile);

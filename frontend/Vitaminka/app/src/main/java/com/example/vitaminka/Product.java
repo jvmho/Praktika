@@ -27,6 +27,9 @@ public class Product {
         this.isLiked = isLiked;
     }
 
+    public Product(String name, double price, double v, boolean b, boolean isNew) {
+    }
+
     public String getName() {
         return name;
     }

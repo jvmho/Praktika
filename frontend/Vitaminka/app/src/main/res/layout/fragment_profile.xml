@@ -65,6 +65,7 @@
         android:drawableEnd="@drawable/arrow_right"
         android:drawableTint="@color/ac2"
         android:drawablePadding="25dp"
+        android:clickable="true"
         android:gravity="center_vertical"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -130,6 +131,7 @@
 
 
     <TextView
+        android:id="@+id/tv_btn_logout_profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -146,6 +148,7 @@
         android:drawableEnd="@drawable/arrow_right"
         android:drawableTint="@color/ac2"
         android:drawablePadding="25dp"
+        android:clickable="true"
         android:gravity="center_vertical"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
