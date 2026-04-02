@@ -27,6 +27,11 @@ func (h *AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 
 	json.NewDecoder(r.Body).Decode(&req)
 
+	if req.Login == "" && req.Password == "" {
+		http.Error(w, "Bad request", 400)
+		return
+	}
+
 	user := new(models.User)
 	err := h.db.Model(user).
 		Where("login = ?", req.Login).
