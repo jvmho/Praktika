@@ -25,6 +25,7 @@ func main() {
 	orderHandler := v1.NewOrderHandler(database)
 	supplyHandler := v1.NewSupplyHandler(database)
 	reservationHandler := v1.NewReservationHandler(database)
+	drugTypeHandler := v1.NewDrugTypeHandler(database)
 
 	http.HandleFunc(base+"/login/auth", authHandler.Login)
 	http.HandleFunc(base+"/users", api.Auth(userHandler.List))
@@ -41,6 +42,8 @@ func main() {
 	http.HandleFunc(base+"/orders/", api.Auth(orderHandler.Get))
 	http.HandleFunc(base+"/supplies", api.Auth(supplyHandler.List))
 	http.HandleFunc(base+"/reservations", api.Auth(reservationHandler.Create))
+	http.HandleFunc(base+"/drugtypes", api.Auth(drugTypeHandler.List))
+	http.HandleFunc(base+"/drugtypes/", api.Auth(drugTypeHandler.Get))
 	
 	logger.Info("Server running at http://localhost:8080")
 
