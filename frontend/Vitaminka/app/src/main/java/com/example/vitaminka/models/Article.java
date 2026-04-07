@@ -1,4 +1,4 @@
-package com.example.vitaminka;
+package com.example.vitaminka.models;
 
 public class Article {
     private String text;

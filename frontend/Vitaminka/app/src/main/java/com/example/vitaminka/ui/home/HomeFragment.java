@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,14 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.vitaminka.Article;
-import com.example.vitaminka.ArticleAdapter;
-import com.example.vitaminka.OfferPagerAdapter;
-import com.example.vitaminka.Product;
-import com.example.vitaminka.ProductAdapter;
+import com.example.vitaminka.models.Article;
+import com.example.vitaminka.models.ArticleAdapter;
+import com.example.vitaminka.models.OfferPagerAdapter;
+import com.example.vitaminka.models.Product;
+import com.example.vitaminka.models.ProductAdapter;
 import com.example.vitaminka.R;
 import com.example.vitaminka.databinding.FragmentHomeBinding;
-import com.example.vitaminka.SpecialOffer;
+import com.example.vitaminka.models.SpecialOffer;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.ArrayList;
@@ -52,8 +51,8 @@ public class HomeFragment extends Fragment implements ProductAdapter.OnProductAc
         RecyclerView rv_sales = binding.rvSales;
         RecyclerView rv_new = binding.rvNew;
         LinearLayoutManager llSaleManager = new  LinearLayoutManager(getContext());
-        llSaleManager.setOrientation(RecyclerView.HORIZONTAL);
         LinearLayoutManager llNewManager = new  LinearLayoutManager(getContext());
+        llSaleManager.setOrientation(RecyclerView.HORIZONTAL);
         llNewManager.setOrientation(RecyclerView.HORIZONTAL);
         rv_sales.setLayoutManager(llSaleManager);
         rv_new.setLayoutManager(llNewManager);
@@ -65,7 +64,6 @@ public class HomeFragment extends Fragment implements ProductAdapter.OnProductAc
         viewPager.setAdapter(offerAdapter);
         articleAdapter = new ArticleAdapter(articleList);
         recyclerView.setAdapter(articleAdapter);
-        viewPager.setClipToPadding(false);
         int sidePadding = dpToPx(48);
         viewPager.setPadding(sidePadding, 0, sidePadding, 0);
         viewPager.setOffscreenPageLimit(3);

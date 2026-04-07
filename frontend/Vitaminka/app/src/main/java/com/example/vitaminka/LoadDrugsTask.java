@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import com.example.vitaminka.models.BatchResponse;
 import com.example.vitaminka.models.DrugResponse;
+import com.example.vitaminka.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;

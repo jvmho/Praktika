@@ -17,6 +17,8 @@ import java.util.List;
 
 public class NetworkUtils {
     private static final String BASE_URL = "http://10.0.2.2:8080/";
+    private static final String ADMIN_TOKEN = "\\ -H \"Content-Type: application/json\" \\\n" +
+            "-d '{\"login\":\"admin\",\"password\":\"admin\"}' | jq -r \".token\"";
 
     // Универсальный GET-запрос, возвращает строку ответа
     public static String getResponse(String endpoint) throws Exception {
@@ -43,7 +45,7 @@ public class NetworkUtils {
 
     // Загрузка корневых категорий (parentId = null)
     public static DrugType[] getRootCategories() throws Exception {
-        String json = getResponse("api/v1/drugtypes?parentId=null");
+        String json = getResponse("api/v1/drugtypes?parentId=null" + ADMIN_TOKEN);
         JSONArray array = new JSONArray(json);
         DrugType[] result = new DrugType[array.length()];
         for (int i = 0; i < array.length(); i++) {
@@ -58,7 +60,7 @@ public class NetworkUtils {
 
     // Загрузка подкатегорий по parentId
     public static DrugType[] getSubCategories(int parentId) throws Exception {
-        String json = getResponse("api/v1/drugtypes?parentId=" + parentId);
+        String json = getResponse("api/v1/drugtypes?parentId=" + parentId + ADMIN_TOKEN);
         JSONArray array = new JSONArray(json);
         DrugType[] result = new DrugType[array.length()];
         for (int i = 0; i < array.length(); i++) {
@@ -70,7 +72,7 @@ public class NetworkUtils {
 
     // Загрузка товаров по drugTypeId
     public static Drug[] getDrugsByType(int drugTypeId) throws Exception {
-        String json = getResponse("api/v1/drugs?TypeId=" + drugTypeId);
+        String json = getResponse("api/v1/drugs?TypeId=" + drugTypeId + ADMIN_TOKEN);
         JSONArray array = new JSONArray(json);
         Drug[] result = new Drug[array.length()];
         for (int i = 0; i < array.length(); i++) {
@@ -86,7 +88,7 @@ public class NetworkUtils {
     }
 
     public static List<DrugResponse> getDrugs() throws Exception {
-        String json = getResponse("api/v1/drugs");
+        String json = getResponse("api/v1/drugs" + ADMIN_TOKEN);
         JSONArray array = new JSONArray(json);
         List<DrugResponse> drugs = new ArrayList<>();
         for (int i = 0; i < array.length(); i++) {
@@ -119,7 +121,7 @@ public class NetworkUtils {
     }
 
     public static BatchResponse getBatchByDrugId(int drugId) throws Exception {
-        String json = getResponse("api/v1/batches?drugId=" + drugId);
+        String json = getResponse("api/v1/batches?drugId=" + drugId + ADMIN_TOKEN);
         // Предполагаем, что возвращается массив партий (возможно, одна)
         JSONArray array = new JSONArray(json);
         if (array.length() > 0) {

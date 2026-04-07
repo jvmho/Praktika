@@ -14,8 +14,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.vitaminka.Product;
-import com.example.vitaminka.ProductAdapter;
+import com.example.vitaminka.models.Product;
+import com.example.vitaminka.models.ProductAdapter;
 import com.example.vitaminka.R;
 import com.example.vitaminka.databinding.FragmentLikesBinding;
 
@@ -31,7 +31,7 @@ public class LikesFragment extends Fragment implements ProductAdapter.OnProductA
         View root = binding.getRoot();
         RecyclerView rv_likes = binding.rvLikes;
         rv_likes.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        productAdapter = new ProductAdapter(null, this);
+        productAdapter = new ProductAdapter(null, this, true);
         rv_likes.setAdapter(productAdapter);
         ImageButton btn_back = binding.btnBack;
         btn_back.setOnClickListener(v -> {

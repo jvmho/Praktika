@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.vitaminka.DrugListFragment;
 import com.example.vitaminka.LoadDrugTypesTask;
 import com.example.vitaminka.R;
 import com.example.vitaminka.models.DrugType;

@@ -34,6 +34,7 @@ public class ProfileFragment extends Fragment {
 
         TextView tv_btn_watch_likes = view.findViewById(R.id.tv_btn_watch_likes);
         TextView tv_btn_logout_profile = view.findViewById(R.id.tv_btn_logout_profile);
+        TextView tv_btn_watch_cart = view.findViewById(R.id.tv_btn_watch_cart);
         tv_btn_watch_likes.setOnClickListener(v -> {
             NavHostFragment.findNavController(this).navigate(R.id.action_profile_to_likes);
         });
@@ -42,6 +43,10 @@ public class ProfileFragment extends Fragment {
             SP_EDITOR.putBoolean(PREFS_ISLOGGED, false);
             SP_EDITOR.apply();
         });
+        tv_btn_watch_cart.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigate(R.id.action_profile_to_cart);
+        });
+
         return view;
     }
 }

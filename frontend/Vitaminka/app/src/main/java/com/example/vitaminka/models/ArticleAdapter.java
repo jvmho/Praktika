@@ -1,4 +1,4 @@
-package com.example.vitaminka;
+package com.example.vitaminka.models;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.vitaminka.R;
 
 import java.util.List;
 

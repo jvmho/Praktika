@@ -1,4 +1,4 @@
-package com.example.vitaminka;
+package com.example.vitaminka.models;
 
 public class SpecialOffer {
     private int colorRes; // ресурс цвета (R.color.some_color)

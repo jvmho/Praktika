@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.vitaminka.Product;
+import com.example.vitaminka.models.Product;
 import com.example.vitaminka.R;
 
 import java.util.ArrayList;

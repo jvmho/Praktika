@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_catalog_to_orthopedic"
             app:destination="@+id/navigation_catalog_orthopedic"/>
+        <action
+            android:id="@+id/action_catalog_to_drug_list"
+            app:destination="@+id/navigation_drug_list"/>
     </fragment>
 
     <fragment
@@ -29,30 +32,36 @@
         <action
             android:id="@+id/action_profile_to_likes"
             app:destination="@+id/navigation_profile_likes"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_catalog_orthopedic"
-        android:name="com.example.vitaminka.ui.catalog.OrthopedicFragment"
-        tools:layout="@layout/fragment_orthopedic">
         <action
-            android:id="@+id/action_orthopedic_to_massagers"
-            app:destination="@+id/navigation_catalog_orthopedic_massagers"/>
+            android:id="@+id/action_profile_to_cart"
+            app:destination="@+id/navigation_profile_cart"/>
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_catalog_orthopedic_massagers"
-        android:name="com.example.vitaminka.ui.catalog.MassagersFragment"
-        tools:layout="@layout/fragment_massagers">
+        android:id="@+id/navigation_drug_list"
+        android:name="com.example.vitaminka.ui.catalog.DrugListFragment"
+        tools:layout="@layout/fragment_drug_list">
         <action
-            android:id="@+id/action_massagers_to_filters"
-            app:destination="@id/navigation_catalog_orthopedic_massagers_filters"/>
+            android:id="@+id/action_drug_list_to_filters"
+            app:destination="@+id/navigation_catalog_filters"/>
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_catalog_orthopedic_massagers_filters"
+        android:id="@+id/navigation_catalog_filters"
         android:name="com.example.vitaminka.ui.catalog.FiltersFragment"
         tools:layout="@layout/fragment_filters"/>
+
+    <fragment
+        android:id="@+id/navigation_profile_cart"
+        android:name="com.example.vitaminka.ui.profile.CartFragment"
+        tools:layout="@layout/fragment_cart">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_orders"
+        android:name="com.example.vitaminka.ui.profile.OrdersFragment"
+        tools:layout="@layout/fragment_orders"/>
 
     <fragment
         android:id="@+id/navigation_profile_login"

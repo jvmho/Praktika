@@ -1,4 +1,4 @@
-package com.example.vitaminka;
+package com.example.vitaminka.ui.catalog;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,13 +10,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.vitaminka.LoadDrugsTask;
+import com.example.vitaminka.models.Product;
+import com.example.vitaminka.models.ProductAdapter;
+import com.example.vitaminka.R;
+
 import java.util.List;
 
 public class DrugListFragment extends Fragment implements ProductAdapter.OnProductActionListener {
     private static final String ARG_DRUG_TYPE_ID = "drug_type_id";
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
-    private int drugTypeId; // если нужно фильтровать по типу, иначе игнорируем
+    private int drugTypeId;
 
     public static DrugListFragment newInstance(int drugTypeId) {
         DrugListFragment fragment = new DrugListFragment();
