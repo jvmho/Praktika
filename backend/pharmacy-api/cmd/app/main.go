@@ -35,6 +35,7 @@ func main() {
 	http.HandleFunc(base+"/drugs", api.Auth(drugHandler.List))
 	http.HandleFunc(base+"/drugs/", api.Auth(drugHandler.Get))
 	http.HandleFunc(base+"/batches/", api.Auth(batchHandler.Get))
+	http.HandleFunc(base+"/batches", api.Auth(batchHandler.List))
 	http.HandleFunc(base+"/stock", api.Auth(stockHandler.List))
 	http.HandleFunc(base+"/cart", api.Auth(cartHandler.Get))
 	http.HandleFunc(base+"/cart/item", api.Auth(cartHandler.AddItem))
