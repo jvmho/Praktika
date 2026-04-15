@@ -83,9 +83,8 @@ CREATE TABLE Batch (
     number      INT,
     shelfLife   DATE,
     arrivalDate DATE,
-    price       INT,
-    discount    INT CHECK (discount <= 100 AND discount >= 0)
-);
+    price       INT
+    );
 
 -- Склады
 CREATE TABLE Warehouse (
@@ -247,7 +246,7 @@ INSERT INTO Supply (supplierID, supplyDate, status) VALUES
     (3, '2024-06-20', 'Оформлена');
 
 -- ==== Партии ====
-INSERT INTO Batch (drugID, supplyID, number, shelfLife, arrivalDate, price) VALUES
+INSERT INTO Batch (drugID, supplyID, number, shelfLife, arrivalDate, price, discount) VALUES
     -- Поставка 1 (01.05.2024)
     (1, 1, 100, '2026-05-01', '2024-05-01', 350),    -- Нурофен
     (2, 1, 200, '2026-03-15', '2024-05-01', 45),     -- Парацетамол
@@ -259,7 +258,7 @@ INSERT INTO Batch (drugID, supplyID, number, shelfLife, arrivalDate, price) VALU
     (8, 2, 120, '2026-01-15', '2024-05-10', 680),    -- Линекс
     
     -- Поставка 3 (15.05.2024)
-    (6, 3, 90,  '2026-06-30', '2024-05-15', 220),    -- Кардиомагнил
+    (6, 3, 90,  '2026-06-30', '2024-05-15', 2200),    -- Кардиомагнил
     (7, 3, 200, '2027-01-01', '2024-05-15', 410),    -- Витамин D3
     (9, 3, 100, '2025-11-20', '2024-05-15', 85),     -- Омепразол
     
