@@ -57,6 +57,9 @@ public class LoginFragment extends Fragment {
                 Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT).show();
             }
         });
+        view.findViewById(R.id.btn_watch_registration_fragment).setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).navigate(R.id.action_login_to_registration);
+        });
         return view;
     }
     private void performLogin(String username, String password) {

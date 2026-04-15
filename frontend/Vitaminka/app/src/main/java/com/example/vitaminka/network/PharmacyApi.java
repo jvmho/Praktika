@@ -1,6 +1,8 @@
 package com.example.vitaminka.network;
 import com.example.vitaminka.model.*;
 import java.util.List;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -17,7 +19,7 @@ public interface PharmacyApi {
     @GET("users/{id}")
     Call<User> getUserById(@Path("id") int id);
 
-    @POST("users")
+    @POST("users/create")
     Call<User> createUser(@Body CreateUserRequest request);
 
     // ── Роли ──────────────────────────────────────────────────────────────

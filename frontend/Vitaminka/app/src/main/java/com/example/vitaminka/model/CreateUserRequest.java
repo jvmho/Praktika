@@ -10,7 +10,7 @@ public class CreateUserRequest {
     @SerializedName("Password")
     private final String password;
 
-    @SerializedName("RoleId")
+    @SerializedName("Role_id")
     private final int roleId;
 
     @SerializedName("Name")
