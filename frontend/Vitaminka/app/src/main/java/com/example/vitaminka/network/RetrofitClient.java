@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://172.28.112.1:8080/api/v1/";
+    private static final String BASE_URL = "http://10.251.199.71:8080/api/v1/";
 
     private static RetrofitClient instance;
     private final PharmacyApi api;

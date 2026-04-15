@@ -105,7 +105,6 @@ type Batch struct {
 	ShelfLife   time.Time
 	ArrivalDate time.Time
 	Price       int
-	Discoun     int
 }
 
 type Warehouse struct {
