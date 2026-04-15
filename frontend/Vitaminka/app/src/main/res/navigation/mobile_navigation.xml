@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.vitaminka.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_catalog"
+        android:name="com.example.vitaminka.ui.catalog.CatalogFragment"
+        tools:layout="@layout/fragment_catalog">
+        <action
+            android:id="@+id/action_catalog_to_orthopedic"
+            app:destination="@+id/navigation_catalog_orthopedic"/>
+        <action
+            android:id="@+id/action_catalog_to_drug_list"
+            app:destination="@+id/navigation_drug_list"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.vitaminka.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@+id/navigation_profile_login"/>
+        <action
+            android:id="@+id/action_profile_to_likes"
+            app:destination="@+id/navigation_profile_likes"/>
+        <action
+            android:id="@+id/action_profile_to_cart"
+            app:destination="@+id/navigation_profile_cart"/>
+        <action
+            android:id="@+id/action_profile_to_orders"
+            app:destination="@id/navigation_profile_orders"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_drug_list"
+        android:name="com.example.vitaminka.ui.catalog.DrugListFragment"
+        tools:layout="@layout/fragment_drug_list">
+        <action
+            android:id="@+id/action_drug_list_to_filters"
+            app:destination="@+id/navigation_catalog_filters"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_catalog_filters"
+        android:name="com.example.vitaminka.ui.catalog.FiltersFragment"
+        tools:layout="@layout/fragment_filters"/>
+
+    <fragment
+        android:id="@+id/navigation_profile_cart"
+        android:name="com.example.vitaminka.ui.profile.CartFragment"
+        tools:layout="@layout/fragment_cart">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_orders"
+        android:name="com.example.vitaminka.ui.profile.OrdersFragment"
+        tools:layout="@layout/fragment_orders">
+        <action
+            android:id="@+id/action_orders_to_order"
+            app:destination="@id/navigation_profile_orders_order"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_orders_order"
+        android:name="com.example.vitaminka.ui.profile.OrderFragment"
+        tools:layout="@layout/fragment_order">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_login"
+        android:name="com.example.vitaminka.ui.profile.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_registration"
+            app:destination="@id/navigation_profile_registration"/>
+        <action
+            android:id="@+id/action_login_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_registration"
+        android:name="com.example.vitaminka.ui.profile.RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registration_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_likes"
+        android:name="com.example.vitaminka.ui.profile.LikesFragment"
+        tools:layout="@layout/fragment_likes">
+        <action
+            android:id="@+id/action_likes_to_profile"
+            app:destination="@+id/navigation_profile"/>
+    </fragment>
+
+</navigation>
