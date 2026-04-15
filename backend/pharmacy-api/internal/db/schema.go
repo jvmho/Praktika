@@ -282,29 +282,29 @@ func seedSupplies(db *pg.DB) error {
 func seedBatches(db *pg.DB) error {
 	batches := []models.Batch{
 		// Поставка 1 (01.05.2024)
-		{Id: 1, DrugId: 1, SupplyId: 1, Number: "100", ShelfLife: parseDate("2026-05-01"), ArrivalDate: parseDate("2024-05-01"), Price: 350},
-		{Id: 2, DrugId: 2, SupplyId: 1, Number: "200", ShelfLife: parseDate("2026-03-15"), ArrivalDate: parseDate("2024-05-01"), Price: 45},
-		{Id: 3, DrugId: 5, SupplyId: 1, Number: "150", ShelfLife: parseDate("2025-12-01"), ArrivalDate: parseDate("2024-05-01"), Price: 520},
+		{Id: 1, DrugId: 1, SupplyId: 1, Number: "100", ShelfLife: parseDate("2026-05-01"), ArrivalDate: parseDate("2024-05-01"), Price: 350  },
+		{Id: 2, DrugId: 2, SupplyId: 1, Number: "200", ShelfLife: parseDate("2026-03-15"), ArrivalDate: parseDate("2024-05-01"), Price: 45   },
+		{Id: 3, DrugId: 5, SupplyId: 1, Number: "150", ShelfLife: parseDate("2025-12-01"), ArrivalDate: parseDate("2024-05-01"), Price: 520  },
 
 		// Поставка 2 (10.05.2024)
-		{Id: 4, DrugId: 3, SupplyId: 2, Number: "80", ShelfLife: parseDate("2025-08-20"), ArrivalDate: parseDate("2024-05-10"), Price: 180},
-		{Id: 5, DrugId: 4, SupplyId: 2, Number: "60", ShelfLife: parseDate("2025-10-10"), ArrivalDate: parseDate("2024-05-10"), Price: 290},
-		{Id: 6, DrugId: 8, SupplyId: 2, Number: "120", ShelfLife: parseDate("2026-01-15"), ArrivalDate: parseDate("2024-05-10"), Price: 680},
+		{Id: 4, DrugId: 3, SupplyId: 2, Number: "80", ShelfLife: parseDate("2025-08-20"), ArrivalDate: parseDate("2024-05-10"), Price: 180   },
+		{Id: 5, DrugId: 4, SupplyId: 2, Number: "60", ShelfLife: parseDate("2025-10-10"), ArrivalDate: parseDate("2024-05-10"), Price: 290   },
+		{Id: 6, DrugId: 8, SupplyId: 2, Number: "120", ShelfLife: parseDate("2026-01-15"), ArrivalDate: parseDate("2024-05-10"), Price: 680  },
 
 		// Поставка 3 (15.05.2024)
-		{Id: 7, DrugId: 6, SupplyId: 3, Number: "90", ShelfLife: parseDate("2026-06-30"), ArrivalDate: parseDate("2024-05-15"), Price: 220},
-		{Id: 8, DrugId: 7, SupplyId: 3, Number: "200", ShelfLife: parseDate("2027-01-01"), ArrivalDate: parseDate("2024-05-15"), Price: 410},
-		{Id: 9, DrugId: 9, SupplyId: 3, Number: "100", ShelfLife: parseDate("2025-11-20"), ArrivalDate: parseDate("2024-05-15"), Price: 85},
+		{Id: 7, DrugId: 6, SupplyId: 3, Number: "90", ShelfLife: parseDate("2026-06-30"), ArrivalDate: parseDate("2024-05-15"), Price: 220   },
+		{Id: 8, DrugId: 7, SupplyId: 3, Number: "200", ShelfLife: parseDate("2027-01-01"), ArrivalDate: parseDate("2024-05-15"), Price: 410  },
+		{Id: 9, DrugId: 9, SupplyId: 3, Number: "100", ShelfLife: parseDate("2025-11-20"), ArrivalDate: parseDate("2024-05-15"), Price: 85   },
 
 		// Поставка 4 (01.06.2024)
-		{Id: 10, DrugId: 10, SupplyId: 4, Number: "150", ShelfLife: parseDate("2026-04-01"), ArrivalDate: parseDate("2024-06-01"), Price: 65},
+		{Id: 10, DrugId: 10, SupplyId: 4, Number: "150", ShelfLife: parseDate("2026-04-01"), ArrivalDate: parseDate("2024-06-01"), Price: 65 },
 		{Id: 11, DrugId: 11, SupplyId: 4, Number: "180", ShelfLife: parseDate("2026-09-15"), ArrivalDate: parseDate("2024-06-01"), Price: 190},
-		{Id: 12, DrugId: 1, SupplyId: 4, Number: "120", ShelfLife: parseDate("2026-08-01"), ArrivalDate: parseDate("2024-06-01"), Price: 355},
+		{Id: 12, DrugId: 1, SupplyId: 4, Number: "120", ShelfLife: parseDate("2026-08-01"), ArrivalDate: parseDate("2024-06-01"), Price: 355 },
 
 		// Поставка 5 (10.06.2024)
 		{Id: 13, DrugId: 12, SupplyId: 5, Number: "100", ShelfLife: parseDate("2025-12-01"), ArrivalDate: parseDate("2024-06-10"), Price: 320},
 		{Id: 14, DrugId: 13, SupplyId: 5, Number: "80", ShelfLife: parseDate("2026-02-28"), ArrivalDate: parseDate("2024-06-10"), Price: 1250},
-		{Id: 15, DrugId: 14, SupplyId: 5, Number: "90", ShelfLife: parseDate("2025-09-01"), ArrivalDate: parseDate("2024-06-10"), Price: 580},
+		{Id: 15, DrugId: 14, SupplyId: 5, Number: "90", ShelfLife: parseDate("2025-09-01"), ArrivalDate: parseDate("2024-06-10"), Price: 580 },
 		{Id: 16, DrugId: 15, SupplyId: 5, Number: "110", ShelfLife: parseDate("2025-07-15"), ArrivalDate: parseDate("2024-06-10"), Price: 450},
 	}
 

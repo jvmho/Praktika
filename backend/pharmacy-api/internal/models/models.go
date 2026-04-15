@@ -11,15 +11,15 @@ type Role struct {
 }
 
 type User struct {
-	tableName struct{} `pg:"users"`
+    tableName struct{} `pg:"users"`
 
-	Id       int
-	Login    string
-	Password string
-	Name     string
-
-	RoleId int
-	Role   *Role `pg:"rel:has-one"`
+	Id       int    `pg:",pk" json:"id,omitempty"`
+    Login    string `json:"login"`
+    Password string `json:"password"`
+    Name     string `json:"name"`
+    
+    RoleId   int    `json:"role_id"`
+    Role     *Role  `pg:"rel:has-one" json:"role,omitempty"`
 }
 
 type UserDiscount struct {
@@ -105,7 +105,6 @@ type Batch struct {
 	ShelfLife   time.Time
 	ArrivalDate time.Time
 	Price       int
-	Discoun     int
 }
 
 type Warehouse struct {
