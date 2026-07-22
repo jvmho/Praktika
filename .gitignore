@@ -35,3 +35,6 @@ google-services.json
 
 # Env files
 .env
+
+# Python cache files
+.pyc
