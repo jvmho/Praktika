@@ -1,0 +1,293 @@
+Starting basig Auth + GET requests testing...
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.MFBrA3Dr_bK2-4N30xVKDA62SJQFEaf7TBKpPaNzKIc"
+}
+
+
+Authenification ended
+
+All users from /api/v1/users/...
+[
+  {
+    "Id": 2,
+    "Login": "ivanov@mail.ru",
+    "Password": "hashed_pass_456",
+    "Name": "Иванов Иван Иванович",
+    "RoleId": 2,
+    "Role": null
+  },
+  {
+    "Id": 3,
+    "Login": "petrova@gmail.com",
+    "Password": "hashed_pass_789",
+    "Name": "Петрова Мария Сергеевна",
+    "RoleId": 2,
+    "Role": null
+  },
+  {
+    "Id": 4,
+    "Login": "sidorov@yandex.ru",
+    "Password": "hashed_pass_012",
+    "Name": "Сидоров Алексей Петрович",
+    "RoleId": 2,
+    "Role": null
+  },
+  {
+    "Id": 5,
+    "Login": "kozlova@mail.ru",
+    "Password": "hashed_pass_345",
+    "Name": "Козлова Анна Викторовна",
+    "RoleId": 2,
+    "Role": null
+  },
+  {
+    "Id": 6,
+    "Login": "manager@pharmacy.ru",
+    "Password": "hashed_manager_678",
+    "Name": "Менеджер Ольга Николаевна",
+    "RoleId": 1,
+    "Role": null
+  },
+  {
+    "Id": 7,
+    "Login": "novikov@inbox.ru",
+    "Password": "hashed_pass_901",
+    "Name": "Новиков Дмитрий Андреевич",
+    "RoleId": 2,
+    "Role": null
+  },
+  {
+    "Id": 8,
+    "Login": "smirnova@gmail.com",
+    "Password": "hashed_pass_234",
+    "Name": "Смирнова Елена Игоревна",
+    "RoleId": 2,
+    "Role": null
+  },
+  {
+    "Id": 1,
+    "Login": "admin",
+    "Password": "admin",
+    "Name": "Администратор Системы",
+    "RoleId": 1,
+    "Role": null
+  }
+]
+
+Request ended
+
+User by {id} 1 from /api/v1/users/...
+{
+  "Id": 1,
+  "Login": "admin",
+  "Password": "admin",
+  "Name": "Администратор Системы",
+  "RoleId": 1,
+  "Role": null
+}
+
+Request ended
+
+All drugs from /api/v1/drugs/...
+[
+  {
+    "Id": 1,
+    "Name": "Нурофен Экспресс",
+    "Category": "Безрецептурный",
+    "Description": "Обезболивающее и жаропонижающее средство",
+    "INN": "Ибупрофен",
+    "Dose": "200мг",
+    "Barcode": 4607027762145,
+    "TypeId": 11,
+    "Type": null,
+    "ManufacturerId": 3,
+    "Manufacturer": null
+  },
+  {
+    "Id": 2,
+    "Name": "Парацетамол",
+    "Category": "Безрецептурный",
+    "Description": "Жаропонижающее и анальгезирующее средство",
+    "INN": "Парацетамол",
+    "Dose": "500мг",
+    "Barcode": 4602193000123,
+    "TypeId": 12,
+    "Type": null,
+    "ManufacturerId": 1,
+    "Manufacturer": null
+  },
+  {
+    "Id": 3,
+    "Name": "Амоксициллин",
+    "Category": "Рецептурный",
+    "Description": "Антибиотик широкого спектра действия",
+    "INN": "Амоксициллин",
+    "Dose": "500мг",
+    "Barcode": 3838989512347,
+    "TypeId": 13,
+    "Type": null,
+    "ManufacturerId": 2,
+    "Manufacturer": null
+  },
+  {
+    "Id": 4,
+    "Name": "Азитромицин",
+    "Category": "Рецептурный",
+    "Description": "Антибиотик группы макролидов",
+    "INN": "Азитромицин",
+    "Dose": "250мг",
+    "Barcode": 4603988012589,
+    "TypeId": 14,
+    "Type": null,
+    "ManufacturerId": 5,
+    "Manufacturer": null
+  },
+  {
+    "Id": 5,
+    "Name": "Арбидол",
+    "Category": "Безрецептурный",
+    "Description": "Противовирусное средство",
+    "INN": "Умифеновир",
+    "Dose": "100мг",
+    "Barcode": 4602193005678,
+    "TypeId": 6,
+    "Type": null,
+    "ManufacturerId": 1,
+    "Manufacturer": null
+  },
+  {
+    "Id": 6,
+    "Name": "Кардиомагнил",
+    "Category": "Безрецептурный",
+    "Description": "Антиагрегантное средство",
+    "INN": "Ацетилсалициловая кислота + Магния гидроксид",
+    "Dose": "75мг",
+    "Barcode": 4607027767894,
+    "TypeId": 7,
+    "Type": null,
+    "ManufacturerId": 6,
+    "Manufacturer": null
+  },
+  {
+    "Id": 7,
+    "Name": "Витамин D3",
+    "Category": "Безрецептурный",
+    "Description": "Витаминный препарат",
+    "INN": "Колекальциферол",
+    "Dose": "1000МЕ",
+    "Barcode": 7613035799851,
+    "TypeId": 8,
+    "Type": null,
+    "ManufacturerId": 7,
+    "Manufacturer": null
+  },
+  {
+    "Id": 8,
+    "Name": "Линекс",
+    "Category": "Безрецептурный",
+    "Description": "Пробиотик для нормализации микрофлоры",
+    "INN": "Лебенин",
+    "Dose": "280мг",
+    "Barcode": 3838989535261,
+    "TypeId": 9,
+    "Type": null,
+    "ManufacturerId": 2,
+    "Manufacturer": null
+  },
+  {
+    "Id": 9,
+    "Name": "Омепразол",
+    "Category": "Рецептурный",
+    "Description": "Ингибитор протонной помпы",
+    "INN": "Омепразол",
+    "Dose": "20мг",
+    "Barcode": 4603988045123,
+    "TypeId": 1,
+    "Type": null,
+    "ManufacturerId": 5,
+    "Manufacturer": null
+  },
+  {
+    "Id": 10,
+    "Name": "Лоратадин",
+    "Category": "Безрецептурный",
+    "Description": "Антигистаминное средство",
+    "INN": "Лоратадин",
+    "Dose": "10мг",
+    "Barcode": 4602193008521,
+    "TypeId": 1,
+    "Type": null,
+    "ManufacturerId": 1,
+    "Manufacturer": null
+  },
+  {
+    "Id": 11,
+    "Name": "Но-шпа",
+    "Category": "Безрецептурный",
+    "Description": "Спазмолитическое средство",
+    "INN": "Дротаверин",
+    "Dose": "40мг",
+    "Barcode": 5997001336014,
+    "TypeId": 1,
+    "Type": null,
+    "ManufacturerId": 6,
+    "Manufacturer": null
+  },
+  {
+    "Id": 12,
+    "Name": "Мезим форте",
+    "Category": "Безрецептурный",
+    "Description": "Ферментный препарат",
+    "INN": "Панкреатин",
+    "Dose": "10000ЕД",
+    "Barcode": 4607027764312,
+    "TypeId": 1,
+    "Type": null,
+    "ManufacturerId": 3,
+    "Manufacturer": null
+  },
+  {
+    "Id": 13,
+    "Name": "Эссенциале форте Н",
+    "Category": "Безрецептурный",
+    "Description": "Гепатопротектор",
+    "INN": "Фосфолипиды",
+    "Dose": "300мг",
+    "Barcode": 4607027769587,
+    "TypeId": 1,
+    "Type": null,
+    "ManufacturerId": 6,
+    "Manufacturer": null
+  },
+  {
+    "Id": 14,
+    "Name": "Ингавирин",
+    "Category": "Безрецептурный",
+    "Description": "Противовирусное средство",
+    "INN": "Имидазолилэтанамид пентандиовой кислоты",
+    "Dose": "90мг",
+    "Barcode": 4602193012456,
+    "TypeId": 6,
+    "Type": null,
+    "ManufacturerId": 8,
+    "Manufacturer": null
+  },
+  {
+    "Id": 15,
+    "Name": "Терафлю",
+    "Category": "Безрецептурный",
+    "Description": "Комбинированное противопростудное средство",
+    "INN": "Парацетамол + Фенирамин + Фенилэфрин",
+    "Dose": "325мг",
+    "Barcode": 7613035012345,
+    "TypeId": 6,
+    "Type": null,
+    "ManufacturerId": 7,
+    "Manufacturer": null
+  }
+]
+
+Request ended
+
+Test ended.
