@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#30303B</color>
+    <color name="cn1">#F5739D</color>
+    <color name="cn2">#A14B67</color>
+    <color name="cn3">#4C2431</color>
+    <color name="imp">#FF3538</color>
+    <color name="ac1">#73F5CB</color>
+    <color name="ac2">#4BA185</color>
+    <color name="ac3">#244C3F</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="acbg">#4D74F7CD</color>
+</resources>

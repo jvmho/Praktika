@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_corner_bg"
+    android:backgroundTint="@color/acbg"
+    android:layout_margin="8dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="15dp">
+
+    <ImageView
+        android:id="@+id/iv_product_image"
+        android:layout_width="180dp"
+        android:layout_height="145dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/product1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/btn_favorite"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:src="@drawable/heart_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/iv_check"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/check_box_icon"
+        app:layout_constraintEnd_toStartOf="@+id/btn_favorite"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="@color/ac3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_product_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_check"
+        tools:text="Тримедат таблетки 200мг №30 (Тримебутин)" />
+
+    <LinearLayout
+        android:id="@+id/ll_prices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_product_image">
+
+        <TextView
+            android:id="@+id/tv_old_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bg"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="966,00₽"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_new_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/bg"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="869,00₽" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_product_image">
+
+        <ImageButton
+            android:id="@+id/btn_item_minus"
+            android:layout_width="43dp"
+            android:layout_height="40dp"
+            android:src="@drawable/minus_icon"
+            android:background="@drawable/rounded_corner_bg_low"
+            android:backgroundTint="@color/ac3"
+            android:textSize="25sp"/>
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="1 шт."
+            android:textColor="@color/bg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/btn_item_plus"
+            android:layout_width="43dp"
+            android:layout_height="40dp"
+            android:src="@drawable/plus_icon"
+            android:background="@drawable/rounded_corner_bg_low"
+            android:backgroundTint="@color/ac3"
+            android:textSize="25sp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

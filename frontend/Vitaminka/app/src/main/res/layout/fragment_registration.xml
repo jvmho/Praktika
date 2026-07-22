@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A000000"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/logo_small_black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Регистрация"
+        android:textColor="@color/ac2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Логин"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/et_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/bg"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Пароль"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/bg"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Повторите пароль"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/et_password_repite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_outline_bg"
+        android:padding="6dp"
+        android:paddingStart="20dp"
+        android:textColor="@color/bg"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_registration"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:text="Зарегистрироваться"
+        android:textColor="@color/ac2"
+        android:textStyle="bold"
+        android:textSize="19sp"
+        android:textAllCaps="false"
+        android:background="@drawable/rounded_btn_light"
+        android:padding="8dp"/>
+
+
+</LinearLayout>
